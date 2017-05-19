@@ -17,7 +17,7 @@ class ConnNic:
     try:
       sock.connect(('ote.nic.io', 700))
       sock.recv().decode("latin1")
-      self.command = Command(self.vars.domain, self.vars.action, sock)
+      self.command = Command(self.vars['domain'], self.vars['action'], sock)
       self.command.login()
 
       perform = {
