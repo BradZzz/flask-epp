@@ -11,7 +11,7 @@ class ConnNic:
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(60)
-    sock = ssl.wrap_socket(sock, keyfile="occasio.key", certfile="cacert.pem", server_side=True, cert_reqs=ssl.CERT_REQUIRED,
+    sock = ssl.wrap_socket(sock, keyfile="occasio.key", certfile="cacert.pem", server_side=False, cert_reqs=ssl.CERT_REQUIRED,
                            ca_certs="/home/bitnami/occasio/python2713/lib/python2.7/site-packages/certifi/cacert.pem")
 
     try:
