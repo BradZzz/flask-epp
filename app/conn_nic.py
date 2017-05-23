@@ -17,7 +17,7 @@ class ConnNic:
 
   def perform(self):
     try:
-      empty = { "received" : self.receive() }
+      empty = { "received" : "none" }
       self.sock.connect(('ote.nic.io', 700))
       self.sock.recv().decode("latin1")
 
