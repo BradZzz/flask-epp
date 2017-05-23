@@ -6,8 +6,8 @@ class ConnNic:
   def __init__(self, domain, action):
 
     self.init = {
-      domain : domain,
-      action : action,
+      'domain' : domain,
+      'action' : action,
     }
 
     self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
