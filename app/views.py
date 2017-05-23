@@ -19,4 +19,4 @@ def handleEPPActions(form, action):
   if not ('domain' in form):
     return "No domain in form"
   nic = ConnNic(form["domain"], action)
-  return "request submitted!"
+  return nic.perform()
