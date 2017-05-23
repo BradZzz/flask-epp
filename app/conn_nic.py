@@ -21,7 +21,7 @@ class ConnNic:
       self.sock.connect(('ote.nic.io', 700))
       self.sock.recv().decode("latin1")
 
-      self.command = Command(self.domain, self.action, self.sock)
+      self.command = Command(self.init.domain, self.init.action, self.sock)
       self.command.login()
 
       perform = {
@@ -29,8 +29,8 @@ class ConnNic:
         'backorder' : self.command.backorder,
       }
 
-      if self.action in perform:
-        empty = perform[self.action]()
+      if self.init.action in perform:
+        empty = perform[self.init.action]()
 
     finally:
       self.sock.close()
