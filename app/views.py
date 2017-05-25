@@ -2,6 +2,8 @@ from app import app
 from flask import request, Response
 from conn_nic import ConnNic
 import json
+from time import sleep
+
 # from flask_restful import Resource, Api, reqparse
 
 # api = Api(app)
@@ -37,6 +39,12 @@ import json
 #
 #
 
+def testy(domain, action):
+  n = 10
+  while n > 0:
+    yield "data: hi\n\n"
+    sleep(0.5)
+    n = n - 1
 
 @app.route('/')
 @app.route('/index')
@@ -50,6 +58,13 @@ def backorder():
 @app.route('/create', methods=['POST'])
 def create():
   return handleEPPActions(request.form, 'create')
+
+@app.route('/test', methods=['POST'])
+def test():
+  return Response(
+    testy(request.form, 'create'),
+    mimetype="text/event-stream"
+  )
 
 def handleEPPActions(form, action):
   if request.headers['Content-Type'] == 'application/json':
