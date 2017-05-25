@@ -1,6 +1,7 @@
 from app import app
 from flask import request, Response
 from conn_nic import ConnNic
+import json
 # from flask_restful import Resource, Api, reqparse
 
 # api = Api(app)
@@ -51,6 +52,8 @@ def create():
   return handleEPPActions(request.form, 'create')
 
 def handleEPPActions(form, action):
+  if request.headers['Content-Type'] == 'application/json':
+    form = json.dumps(request.json)
   if not ('domain' in form):
     return "No domain in form"
   nic = ConnNic(form["domain"], action)
