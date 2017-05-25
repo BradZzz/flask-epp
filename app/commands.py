@@ -1,5 +1,4 @@
 import struct, json
-from promise import Promise
 
 class Command:
 

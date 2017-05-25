@@ -1,7 +1,5 @@
 import socket, ssl, struct, json
 from commands import Command
-from promise import Promise
-
 
 class ConnNic:
   def __init__(self, domain, action):
@@ -39,3 +37,5 @@ class ConnNic:
 
     finally:
       self.sock.close()
+
+    yield ''
