@@ -40,7 +40,7 @@ from time import sleep
 #
 
 def testy(domain, action):
-  n = 10
+  n = 5
   while n > 0:
     yield "data: hi\n\n"
     sleep(0.5)
@@ -59,6 +59,7 @@ def backorder():
 def create():
   return handleEPPActions(request.form, 'create')
 
+#This tests flask's response to the generator
 @app.route('/test', methods=['POST'])
 def test():
   return Response(
@@ -72,4 +73,4 @@ def handleEPPActions(form, action):
   if not ('domain' in form):
     return "No domain in form"
   nic = ConnNic(form['domain'], action)
-  return Response(nic.perform(), mimetype='text/plain')
+  return Response(nic.perform(), mimetype='application/json')

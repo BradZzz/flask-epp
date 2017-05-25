@@ -17,11 +17,9 @@ class ConnNic:
   def perform(self):
     try:
       empty = { "received" : "none" }
+
       self.sock.connect(('ote.nic.io', 700))
       self.sock.recv().decode("latin1")
-
-      print self.init
-
       self.command = Command(self.init['domain'], self.init['action'], self.sock)
       self.command.login()
 
@@ -40,4 +38,3 @@ class ConnNic:
 
     finally:
       self.sock.close()
-      yield ''

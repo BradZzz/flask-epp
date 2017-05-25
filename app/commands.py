@@ -1,23 +1,13 @@
 import struct, json
+from env import STATICS
 
 class Command:
 
   def __init__(self, domain, action, conn):
     self.conn = conn
-    self.info = {
-      "clID":"NIC-1253",
-      "clIDBilling":"NIC-1259849",
-      "clTRID":"abcde12345",
-      "ns1":"oswald.ns.cloudflare.com",
-      "ns2":"rita.ns.cloudflare.com",
-      "pw":".[&lt;2&amp;q'xKn9NMdD:",
-      "testDomain":domain,
-      "testBackorder":domain,
-      "testCheck01":"biscuits.io",
-      "testCheck02":"ninja.io",
-      "infoDomain":"cyborgs.io",
-      "years":"2",
-    }
+    self.info = STATICS
+    self.info["testDomain"] = domain
+    self.info["testBackorder"]= domain
 
   def login(self):
     login_com = """
