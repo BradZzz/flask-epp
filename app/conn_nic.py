@@ -33,8 +33,8 @@ class ConnNic:
       if self.init['action'] in perform:
         empty = perform[self.init['action']]()
 
-      # yield json.dumps(empty)
-      yield 'yo'
+      yield json.dumps(empty)
+      # yield 'yo'
 
     finally:
       self.sock.close()
