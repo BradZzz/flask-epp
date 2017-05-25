@@ -1,5 +1,6 @@
 import socket, ssl, struct, json
 from commands import Command
+from promise import Promise
 
 
 class ConnNic:
@@ -34,7 +35,7 @@ class ConnNic:
       if self.init['action'] in perform:
         empty = perform[self.init['action']]()
 
+      yield json.dumps(empty)
+
     finally:
       self.sock.close()
-
-    return json.dumps(empty)
