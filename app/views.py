@@ -54,7 +54,7 @@ def create():
 def handleEPPActions(form, action):
   print form
   if request.headers['Content-Type'] == 'application/json':
-    form = json.loads(request.json)
+    form = json.loads(json.dumps(request.json))
   print form
   if not ('domain' in form):
     return "No domain in form"
