@@ -52,8 +52,10 @@ def create():
   return handleEPPActions(request.form, 'create')
 
 def handleEPPActions(form, action):
+  print form
   if request.headers['Content-Type'] == 'application/json':
     form = json.dumps(request.json)
+  print form
   if not ('domain' in form):
     return "No domain in form"
   nic = ConnNic(form["domain"], action)
