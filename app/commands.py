@@ -46,7 +46,6 @@ class Command:
 
     print json.dumps({ "sent" : login_com })
     self.send_(login_com)
-    print json.dumps({ "received" : self.receive() })
     return json.dumps({ "received" : self.receive() })
 
   def hello(self):
@@ -59,7 +58,6 @@ class Command:
 
     print json.dumps({ "sent" : hello })
     self.send_(hello)
-    print json.dumps({ "received" : self.receive() })
     return json.dumps({ "received" : self.receive() })
 
   def info(self):
@@ -80,7 +78,6 @@ class Command:
 
     print json.dumps({ "sent" : info })
     self.send_(info)
-    print json.dumps({ "received" : self.receive() })
     return json.dumps({ "received" : self.receive() })
 
   def createDomain(self):
@@ -118,7 +115,6 @@ class Command:
 
     print json.dumps({ "sent" : create })
     self.send_(create)
-    print json.dumps({ "received" : self.receive() })
     return json.dumps({ "received" : self.receive() })
 
   def backorder(self):
@@ -143,7 +139,6 @@ class Command:
 
     print json.dumps({ "sent" : order })
     self.send_(order)
-    print json.dumps({ "received" : self.receive() })
     return json.dumps({ "received" : self.receive() })
 
   def check(self):
@@ -168,7 +163,6 @@ class Command:
 
     print json.dumps({ "sent" : check })
     self.send_(check)
-    print json.dumps({ "received" : self.receive() })
     return json.dumps({ "received" : self.receive() })
 
   def receive(self):
